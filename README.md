@@ -14,7 +14,7 @@ Pokémon Explorer is a React application that allows users to search and browse 
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/pokemon-explorer.git
+    git clone https://github.com/raazkhnl/pokemon-explorer.git
     cd pokemon-explorer
     ```
 
