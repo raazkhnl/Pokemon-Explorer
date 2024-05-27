@@ -5,13 +5,9 @@ import SearchBar from './components/SearchBar';
 import Spinner from './components/Spinner';
 import PokemonModal from './components/PokemonModal';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import './App.css';
 
-const fetchPokemonData = async (limit, offset) => {
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
-  const data = await response.json();
-  return data.results;
-};
 
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -21,7 +17,14 @@ const App = () => {
   const [hasMore, setHasMore] = useState(true);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
+  
+  // Function to fetch Pokemon data
+  const fetchPokemonData = async (limit, offset) => {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
+    const data = await response.json();
+    return data.results;
+  };
+  // Function to load Pokemons
   const loadPokemons = useCallback(async () => {
     setIsFetching(true);
     const newPokemons = await fetchPokemonData(20, offset);
@@ -30,6 +33,7 @@ const App = () => {
       setIsFetching(false);
       return;
     }
+
     const pokemonDetails = await Promise.all(newPokemons.map(async (pokemon) => {
       const response = await fetch(pokemon.url);
       const details = await response.json();
@@ -38,6 +42,7 @@ const App = () => {
         name: move.move.name,
         level: move.version_group_details[0].level_learned_at,
       }));
+
       return {
         name: details.name,
         image: details.sprites.front_default,
@@ -45,18 +50,21 @@ const App = () => {
         height: details.height,
         weight: details.weight,
         base_experience: details.base_experience,
-        abilities: abilities,
-        moves: moves,
+        abilities,
+        moves,
       };
     }));
+
     setPokemons((prevPokemons) => [...prevPokemons, ...pokemonDetails]);
     setIsFetching(false);
   }, [offset]);
 
+  // Initial load of Pokemons
   useEffect(() => {
     loadPokemons();
   }, [loadPokemons]);
 
+  // Scroll event handler
   const handleScroll = useCallback(() => {
     if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 500 && !isFetching && hasMore) {
       setOffset((prevOffset) => prevOffset + 20);
@@ -70,16 +78,19 @@ const App = () => {
     };
   }, [handleScroll]);
 
+  // Handling card click to show modal
   const handleCardClick = (pokemon) => {
     setSelectedPokemon(pokemon);
     setShowModal(true);
   };
 
+  // Handling close modal
   const handleCloseModal = () => {
     setShowModal(false);
     setSelectedPokemon(null);
   };
 
+  // Filter Pokemons based on the keyword
   const filteredPokemons = pokemons.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(keyword.toLowerCase())
   );
@@ -103,6 +114,7 @@ const App = () => {
         {!hasMore && <div className="text-center">No more Pokémon to load</div>}
         <PokemonModal show={showModal} handleClose={handleCloseModal} pokemon={selectedPokemon} />
       </div>
+      <Footer />
     </>
   );
 };

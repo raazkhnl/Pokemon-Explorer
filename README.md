@@ -1,22 +1,40 @@
-# Pokémon List
+# Pokémon Explorer
 
-This project is a React application displaying a list of Pokemon fetched from the PokeAPI. The application allows users to search for Pokemon by name.
+Pokémon Explorer is a React application that allows users to search and browse through Pokémon. The application loads more Pokémon as the user scrolls down, and provides detailed information about each Pokémon in a modal.
 
-## Setup Instructions
+## Features
+
+- Load Pokémon on scroll
+- Search Pokémon by name
+- Display detailed information about each Pokémon, including abilities and moves
+- Responsive design with Bootstrap 5
+- Infinite scrolling to load more Pokémon
+
+## Installation
 
 1. Clone the repository:
-   ```sh
-   git clone <repository-url>
-   cd pokemon
+    ```sh
+    git clone https://github.com/yourusername/pokemon-explorer.git
+    cd pokemon-explorer
+    ```
 
 2. Install dependencies:
-   ```sh
-   npm install
+    ```sh
+    npm install
+    ```
 
-3. Run the app:
+3. Start the application:
     ```sh
     npm start
+    ```
 
-4. Build for production:
-    ```sh
-    npm run build
+## Author
+
+RaaZ Khanal
+
+- [Facebook](https://facebook.com/raazkhnl)
+- Email: raazkhnl@gmail.com
+
+## License
+
+This project is licensed under the MIT License.
