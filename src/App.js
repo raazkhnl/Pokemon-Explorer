@@ -111,7 +111,7 @@ const App = () => {
           ))}
         </div>
         {isFetching && <Spinner />}
-        {!hasMore && <div className="text-center">No more Pokémon to load</div>}
+        {!hasMore && <h4 className="text-center mt-5 pt-5">No Pokémons here! Gotta Search Elsewere. <br />Keep Exploring!</h4>}
         <PokemonModal show={showModal} handleClose={handleCloseModal} pokemon={selectedPokemon} />
       </div>
       <Footer />
