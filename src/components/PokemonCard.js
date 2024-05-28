@@ -10,7 +10,7 @@ const PokemonCard = ({ pokemon, onClick }) => {
         <div className="card  pokemon-card shadow h-100" style={{ cursor: 'pointer' }} onClick={() => onClick(pokemon)}>
         <img src={pokemon.image} className="card-img-top img-fluid m-auto " alt={pokemon.name} style={{ width: '12rem'}}/>
         <div className="card-body">
-          <h3 className="card-title fw-bold pb-2">{formatSentenceCase(pokemon.name)}</h3>
+          <h3 className="card-title fw-bold pb-2 pokemon-blue">{formatSentenceCase(pokemon.name)}</h3>
           <p className="card-text"><b>Type: </b>{pokemon.type.map((type) => formatSentenceCase(type)).join(', ')}</p>
           <p className="card-text"><b>Height: </b>{pokemon.height} Dm</p>
           <p className="card-text"><b>Weight: </b>{pokemon.weight} Hg</p>

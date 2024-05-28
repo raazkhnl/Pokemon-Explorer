@@ -1,6 +1,10 @@
+*{
+  /* primary text coolor  */
+  color: #1f356b ;
+}
 body {
   background-color: #f6cc22c5;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;  
 }
 
 .container {
@@ -15,7 +19,9 @@ body {
 .bg-pokemon-light {
   background-color: #f6cc22;
 }
-
+.pokemon-blue{
+  color: #1f356b ;
+}
 /* Pokemon List */
 .pokemon-list {
   display: flex;
@@ -42,14 +48,10 @@ body {
   width: 100px;
 }
 
-.pokemon-card h5 {
-  font-size: 18px;
-  margin: 8px 0;
-}
+
 
 .pokemon-card p {
   font-size: 14px;
-  color: #555;
 }
 
 /* Form Control */
@@ -58,11 +60,13 @@ body {
   border: 1px solid #FFCB05;
   width: 160px;
 }
-
+.form-control::placeholder {
+  color: #1f356b;
+}
 .form-control:focus {
   background-color: #f1ee8e;
   outline: none;
-  border-color: #4da6ff;
+  border-color: #1f356b;;
 }
 
 /* Spinner */
@@ -75,6 +79,19 @@ body {
 }
 
 /* Modal */
+.modal-border{
+  border-bottom: 1px solid gray;
+}
+.modal-button{
+  background-color: rgb(20, 25, 112);
+  color: azure;
+}
+.modal-button:hover{
+  background-color: rgb(20, 25, 112);
+  color: azure;
+  opacity: 0.8;
+}
+
 @media (min-width: 768px) {
   .modal-dialog {
     max-width: 75%;
