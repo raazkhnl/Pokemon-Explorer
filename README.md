@@ -2,6 +2,8 @@
 
 Pokémon Explorer is a React application that allows users to search and browse through Pokémon. The application loads more Pokémon as the user scrolls down, and provides detailed information about each Pokémon in a modal.
 
+- [Deployed on Github Pagess](https://raazkhnl.github.io/pokemon-explorer/)
+
 ## Features
 
 - Load Pokémon on scroll
